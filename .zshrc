@@ -58,4 +58,4 @@ powerline-daemon -q 2> /dev/null
 source /usr/share/powerline/bindings/zsh/powerline.zsh 2> /dev/null
 
 alias ls='ls --color'
-alias config='/usr/bin/git --git-dir=/home/pi/.cfg/ --work-tree=/home/pi'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
