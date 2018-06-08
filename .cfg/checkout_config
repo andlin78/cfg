@@ -13,6 +13,7 @@ if [ $? = 0 ]; then
 fi;
 config checkout
 if [ $? = 0 ]; then
+   echo "All up to date."
    config config status.showUntrackedFiles no
 else
    echo "Error while checking out.";
