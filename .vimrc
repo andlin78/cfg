@@ -1,9 +1,11 @@
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
+
 set laststatus=2
 set t_Co=256
 set relativenumber
+
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 syntax on
 set background=dark
@@ -58,3 +60,12 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" Open a NERDTree if no file where specified
+autocmd StdinReadPre * let s:std_in=1autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Open a NERDTree if a directory is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" Bind key to toggle NERDTree
+map <C-n> :NERDTreeToggle<CR>
