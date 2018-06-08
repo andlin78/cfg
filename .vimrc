@@ -1,18 +1,3 @@
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-
-set laststatus=2
-set t_Co=256
-set relativenumber
-
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-syntax on
-set background=dark
-" let g:solarized_termcolors=256
-colorscheme solarized
-
-
 " Vundle configuration starts here
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -69,3 +54,17 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 " Bind key to toggle NERDTree
 map <C-n> :NERDTreeToggle<CR>
+
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
+set laststatus=2
+set t_Co=256
+set relativenumber
+
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+syntax on
+set background=dark
+" let g:solarized_termcolors=256
+colorscheme solarized
