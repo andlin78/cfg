@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo apt install tmux zsh powerline vim-nox git ranger mc highlight
+git clone https://github.com/VundleVim/Vundle.vim.git /home/pi/.vim/bundle/Vundle.vim
