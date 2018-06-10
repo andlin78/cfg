@@ -64,19 +64,19 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 if hash screenfetch 2>/dev/null; then
 	screenfetch
-	tput sc
+	tput sc # save cursor position
 
 
 	while [ $((++i)) -lt 9 ]; do tput cuu1; done
 
-	tput cuf 30
+	tput cuf 30 # Move colums right
 
 	while IFS= read -r Wttr; do
   		printf "$Wttr"
-  		tput cud1               # Down one line
+  		tput cud1 # Down one line
   		tput cuf 30 # Move columns right
   		LineCnt=$((++LineCnt))
 	done < <(curl -s "wttr.in/Uddevalla?lang=sv" | head -n7 | tail -n6)
 
-	tput rc
+	tput rc # Recall cursor position
 fi
