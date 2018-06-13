@@ -62,7 +62,8 @@ fi
 alias ls='ls --color'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-if hash screenfetch 2>/dev/null; then
+if [ "$TTY" = "$SSH_TTY" ]; then
+  if hash screenfetch 2>/dev/null; then
 	screenfetch
 	tput sc # save cursor position
 
@@ -79,4 +80,5 @@ if hash screenfetch 2>/dev/null; then
 	done < <(curl -s "wttr.in/Uddevalla?lang=sv" | head -n7 | tail -n6)
 
 	tput rc # Recall cursor position
+  fi
 fi
