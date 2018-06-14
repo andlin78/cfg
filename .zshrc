@@ -18,8 +18,9 @@ setopt autocd
 unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
-
-
+###################
+### zplug setup ###
+###################
 
 # Check if zplug is installed
 # Requires git & awk (not mawk)
@@ -48,25 +49,48 @@ fi
 
 zplug load
 
-#####################################
+########################################
+### Settings for zsh-autosuggestions ###
+########################################
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+
+######################
+### Terminal setup ###
+######################
+
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
+
+#######################
+### Start powerline ###
+#######################
 
 if hash powerline-daemon 2>/dev/null; then
 	powerline-daemon -q 2> /dev/null
 	source /usr/share/powerline/bindings/zsh/powerline.zsh 2> /dev/null
 fi
 
+###############
+### Aliases ###
+###############
+
 alias ls='ls --color'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+#######################################
+### Display screenfetch and weather ###
+#######################################
+#
 if [ "$TTY" = "$SSH_TTY" ]; then
   if hash screenfetch 2>/dev/null; then
+	clear
+	echo
 	screenfetch
 	tput sc # save cursor position
-
 
 	while [ $((++i)) -lt 9 ]; do tput cuu1; done
 
@@ -80,5 +104,6 @@ if [ "$TTY" = "$SSH_TTY" ]; then
 	done < <(curl -s "wttr.in/Uddevalla?lang=sv" | head -n7 | tail -n6)
 
 	tput rc # Recall cursor position
+	echo
   fi
 fi
