@@ -62,8 +62,8 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 
-bindkey "${terminfo[khome]}" beginning-of-line
-bindkey "${terminfo[kend]}" end-of-line
+bindkey "\033[1~" beginning-of-line
+bindkey "\033[4~" end-of-line
 
 #######################
 ### Start powerline ###
