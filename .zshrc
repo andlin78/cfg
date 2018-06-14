@@ -17,7 +17,9 @@ SAVEHIST=1000
 setopt autocd
 unsetopt beep
 bindkey -v
+export KEYTIMEOUT=1
 # End of lines configured by zsh-newuser-install
+
 ###################
 ### zplug setup ###
 ###################
