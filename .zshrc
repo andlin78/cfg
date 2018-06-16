@@ -1,3 +1,13 @@
+######################
+### Terminal setup ###
+######################
+
+export TERM=xterm-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
+
+bindkey "\033[1~" beginning-of-line
+bindkey "\033[4~" end-of-line
+
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
@@ -56,16 +66,8 @@ zplug load
 ########################################
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
-
-######################
-### Terminal setup ###
-######################
-
-export TERM=xterm-256color
-[ -n "$TMUX" ] && export TERM=screen-256color
-
-bindkey "\033[1~" beginning-of-line
-bindkey "\033[4~" end-of-line
+bindkey '^ ' autosuggest-accept
+bindkey '^^M' autosuggest-execute
 
 #######################
 ### Start powerline ###
