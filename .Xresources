@@ -37,7 +37,7 @@
 #define S_green         #859900
 
 *background:            S_base03
-*foreground:            S_base00
+*foreground:            S_base2
 *fading:                40
 *fadeColor:             S_base03
 *cursorColor:           S_base1
@@ -77,4 +77,4 @@
 *color15:               S_base3
 
 URxvt.scrollBar: off
-URxvt.font: xft:DejaVuSansMonoForPowerline:pixelsize=12
+URxvt.font: xft:DejaVuSansMonoForPowerline:pixelsize=13
