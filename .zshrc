@@ -2,11 +2,6 @@
 ### Terminal setup ###
 ######################
 
-if [ "$NAME" = "TBSEMUN01WS0880" ]; then
-	export http_proxy="http://localhost:3128/"
-	export https_proxy=$http_proxy
-fi
-
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 
